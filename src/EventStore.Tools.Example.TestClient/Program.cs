@@ -1,24 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Text;
 using EventStore.ClientAPI;
 using EventStore.ClientAPI.SystemData;
-using EventStore.Tools.Example.Messages.Commands;
-using EventStore.Tools.Example.TestClient.ReadModel;
+using EventStore.Tools.Example.TestClient.Commands;
 using EventStore.Tools.Infrastructure;
 using Newtonsoft.Json;
 
 namespace EventStore.Tools.Example.TestClient
 {
+    /// <summary>
+    /// This test client interact with the AssociateAccount Micro-Service
+    /// The AssociateAccountEndPoint on the other end listen the 'input-account' stream for input commands
+    /// In a real world scenarion this could be a WebUi or and Http Api or a FromFileAdapter or a FromAmqpAdapter or whatever
+    /// </summary>
     class Program
     {
         private static IEventStoreConnection _connection;
         
         static void Main(string[] args)
         {
+            Console.WriteLine("Loading EventStore");
+            if (Process.GetProcessesByName("EventStore.ClusterNode").Length == 0)
+            {
+                Console.WriteLine("To run this sample program you need to start EventStore on this machine.");
+                Console.WriteLine("If you don't have it you can download from https://geteventstore.com/downloads/");
+                Console.WriteLine("Press enter to exit");
+                Console.ReadLine();
+                return;
+            }
             Connect();
-            ReadModelSubscriber();
+            var readModelSynchroniser = new ReadModelSynchroniser(_connection);
+            readModelSynchroniser.Start();
             var repeat = true;
             var correlationId = Guid.Empty;
             Console.WriteLine("Press 1 to send a Create command");
@@ -99,29 +113,6 @@ namespace EventStore.Tools.Example.TestClient
             var jsonObj = JsonConvert.SerializeObject(obj);
             var data = Encoding.UTF8.GetBytes(jsonObj);
             return data;
-        }
-
-        private static void ReadModelSubscriber()
-        {
-            _connection.SubscribeToAllFrom(Position.Start, CatchUpSubscriptionSettings.Default, EventAppeared);
-        }
-
-        private static void EventAppeared(EventStoreCatchUpSubscription eventStoreCatchUpSubscription, ResolvedEvent resolvedEvent)
-        {
-            if (resolvedEvent.OriginalEvent.EventType.StartsWith("$"))
-                return;
-
-            if (!resolvedEvent.Event.EventType.Equals("ExpenseRegistered") &&
-                !resolvedEvent.Event.EventType.Equals("IncomeRegistered")) return;
-
-            var evt =
-                JsonConvert.DeserializeObject<CurrentBalanceDto>(Encoding.UTF8.GetString(resolvedEvent.Event.Data));
-
-            var metadata =
-                JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(
-                    Encoding.UTF8.GetString(resolvedEvent.Event.Metadata));
-
-            Console.WriteLine($"The account with correlatioId {metadata["$correlationId"]} has a current balance of £{evt.Balance}");
         }
     }
 }

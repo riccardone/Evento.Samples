@@ -49,6 +49,9 @@
     <Compile Include="Aggregates\AssociateAccount.cs" />
     <Compile Include="Aggregates\ValueObjects\Expense.cs" />
     <Compile Include="Aggregates\ValueObjects\Income.cs" />
+    <Compile Include="Commands\CreateAssociateAccount.cs" />
+    <Compile Include="Commands\RegisterExpense.cs" />
+    <Compile Include="Commands\RegisterIncome.cs" />
     <Compile Include="Events\AssociateAccountCreated.cs" />
     <Compile Include="Events\ExpenseRegistered.cs" />
     <Compile Include="Events\IncomeRegistered.cs" />

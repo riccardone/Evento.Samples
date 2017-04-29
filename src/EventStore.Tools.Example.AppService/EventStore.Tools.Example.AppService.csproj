@@ -68,10 +68,6 @@
       <Project>{096cb927-d025-4795-92e0-616100514543}</Project>
       <Name>EventStore.Tools.Example.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EventStore.Tools.Example.Messages\EventStore.Tools.Example.Messages.csproj">
-      <Project>{706e2c2b-90e0-4a80-9c4a-0476a0f68796}</Project>
-      <Name>EventStore.Tools.Example.Messages</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

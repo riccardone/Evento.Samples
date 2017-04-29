@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using EventStore.ClientAPI;
-using EventStore.Tools.Example.Messages.Commands;
+using EventStore.Tools.Example.Domain.Commands;
 using EventStore.Tools.Infrastructure;
 using log4net;
 using Newtonsoft.Json;

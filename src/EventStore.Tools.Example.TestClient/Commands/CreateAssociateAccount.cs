@@ -1,7 +1,7 @@
 ﻿using System;
 using EventStore.Tools.Infrastructure;
 
-namespace EventStore.Tools.Example.Messages.Commands
+namespace EventStore.Tools.Example.TestClient.Commands
 {
     public class CreateAssociateAccount : Command
     {

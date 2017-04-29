@@ -55,6 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateAssociateAccount.cs" />
+    <Compile Include="Commands\RegisterExpense.cs" />
+    <Compile Include="Commands\RegisterIncome.cs" />
+    <Compile Include="ReadModelSynchroniser.cs" />
     <Compile Include="ReadModel\CurrentBalanceDto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,12 +66,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EventStore.Tools.Example.Messages\EventStore.Tools.Example.Messages.csproj">
-      <Project>{706e2c2b-90e0-4a80-9c4a-0476a0f68796}</Project>
-      <Name>EventStore.Tools.Example.Messages</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

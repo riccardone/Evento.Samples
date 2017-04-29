@@ -1,5 +1,5 @@
 ﻿using EventStore.Tools.Example.Domain.Aggregates;
-using EventStore.Tools.Example.Messages.Commands;
+using EventStore.Tools.Example.Domain.Commands;
 using EventStore.Tools.Infrastructure;
 
 namespace EventStore.Tools.Example.AppService

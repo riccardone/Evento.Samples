@@ -2,8 +2,8 @@
 using System.Linq;
 using EventStore.Tools.Example.AppService;
 using EventStore.Tools.Example.Domain.Aggregates;
+using EventStore.Tools.Example.Domain.Commands;
 using EventStore.Tools.Example.Domain.Events;
-using EventStore.Tools.Example.Messages.Commands;
 using EventStore.Tools.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
