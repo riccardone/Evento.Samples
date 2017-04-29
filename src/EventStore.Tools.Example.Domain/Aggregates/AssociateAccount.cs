@@ -10,11 +10,9 @@ namespace EventStore.Tools.Example.Domain.Aggregates
     public class AssociateAccount : AggregateBase
     {
         public override string AggregateId => CorrelationId.ToString();
-        public Guid CorrelationId { get; private set; }
-        public Guid AssociateId { get; private set; }
-        public List<Income> Incomes { get; }
-        public List<Expense> Expenses { get; }
-        public decimal Balance { get; private set; }
+        private Guid CorrelationId { get; set; }
+        private List<Income> Incomes { get; }
+        private List<Expense> Expenses { get; }
 
         public AssociateAccount(Guid correlationId, Guid associateId) : this()
         {
@@ -33,19 +31,16 @@ namespace EventStore.Tools.Example.Domain.Aggregates
         private void Apply(ExpenseRegistered evt)
         {
             Expenses.Add(new Expense(evt.Value, evt.Description));
-            Balance = evt.Balance;
         }
 
         private void Apply(IncomeRegistered evt)
         {
             Incomes.Add(new Income(evt.Value, evt.Description));
-            Balance = evt.Balance;
         }
 
         private void Apply(AssociateAccountCreated evt)
         {
             CorrelationId = evt.CorrelationId;
-            AssociateId = evt.AssociateId;
         }
 
         public static IAggregate Create(Guid correlationId, Guid associateId)

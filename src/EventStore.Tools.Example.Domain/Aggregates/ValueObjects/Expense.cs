@@ -1,6 +1,6 @@
 ﻿namespace EventStore.Tools.Example.Domain.Aggregates.ValueObjects
 {
-    public class Expense
+    internal class Expense
     {
         public decimal Value { get; }
         public string Description { get; }
