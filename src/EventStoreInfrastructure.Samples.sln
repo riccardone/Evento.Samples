@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.Example.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.Example.TestClient", "EventStore.Tools.Example.TestClient\EventStore.Tools.Example.TestClient.csproj", "{4343B584-F322-4965-BE9D-AEDE06E4B3DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evento.AppService", "Evento.AppService\Evento.AppService.csproj", "{009C4286-421E-4B7C-B3C0-579358DCB93E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evento.Domain", "Evento.Domain\Evento.Domain.csproj", "{C930A2E9-F086-46AC-95E8-09559462C7B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{4343B584-F322-4965-BE9D-AEDE06E4B3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4343B584-F322-4965-BE9D-AEDE06E4B3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4343B584-F322-4965-BE9D-AEDE06E4B3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009C4286-421E-4B7C-B3C0-579358DCB93E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009C4286-421E-4B7C-B3C0-579358DCB93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009C4286-421E-4B7C-B3C0-579358DCB93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009C4286-421E-4B7C-B3C0-579358DCB93E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C930A2E9-F086-46AC-95E8-09559462C7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C930A2E9-F086-46AC-95E8-09559462C7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C930A2E9-F086-46AC-95E8-09559462C7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C930A2E9-F086-46AC-95E8-09559462C7B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
