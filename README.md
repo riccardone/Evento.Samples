@@ -1,6 +1,6 @@
-# EventStore.Tools.Infrastructure.Samples
-A C# sample project demostrating how to use EventStore.Tools.Infrastructure library
-https://github.com/riccardone/EventStore.Tools.Infrastructure
+# Evento.Samples
+A C# sample project demostrating how to use my Evento library
+https://github.com/riccardone/Evento
 
 # How to run the TestClient  
 Spin up an instance of EventStore (https://geteventstore.com/) on your dev machine first  
